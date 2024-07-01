@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJs Technical Documentation Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <nav id="navbar">
+            <header>ReactJS</header>
+                <ul>
+                    <a href="#React" class="nav-link"><li>React</li></a>
+                    <a href="#JSX" class="nav-link"><li>JSX</li></a>
+                    <a href="#Props" class="nav-link"><li>Props</li></a>
+                    <a href="#Events" class="nav-link"><li>Events</li></a>
+                    <a href="#Hooks" class="nav-link"><li>Hooks</li></a>
+                </ul>
+        </nav>
+        
+        <main id="main-doc">
+
+                <section class="main-section" id="React">
+                    <header>React</header>
+                    <article><p>React is a JavaScript library for building user interfaces. React is used to build single-page applications. React allows us to create reusable UI components.
+                        
+                    <code>
+                        import React from 'react';
+                        import ReactDOM from 'react-dom/client';
+                        
+                        function Hello(props) {
+                        return &lt;h1>Hello World!&lt;/h1>;
+                        }
+                        
+                        const container = document.getElementById("root");
+                        const root = ReactDOM.createRoot(container);
+                        root.render(&lt;Hello />);
+                    </code>
+                    <h2>What is React ?</h2>
+                    <p>
+                        React, sometimes referred to as a frontend JavaScript framework, is a JavaScript library created by Facebook. React is a tool for building UI components.
+                    </p>
+
+                        <h2>How does React Work?</h2>
+                        <p>React creates a VIRTUAL DOM in memory.
+                            <br>
+                            Instead of manipulating the browser's DOM directly, React creates a virtual DOM in memory, where it does all the necessary manipulating, before making the changes in the browser DOM.<br>
+                            React only changes what needs to be changed!
+                            <br>
+                            React finds out what changes have been made, and changes only what needs to be changed.
+                            <br>
+                            You will learn the various aspects of how React does this in the rest of this tutorial.
+                        </p>
+                        
+                        <h2>React.JS History</h2>
+                        <p>Current version of React.JS is V18.0.0 (April 2022).
+                            <br>
+                            Initial Release to the Public (V0.3.0) was in July 2013.
+                            <br>
+                            React.JS was first used in 2011 for Facebook's Newsfeed feature.
+                            <br>
+                            Facebook Software Engineer, Jordan Walke, created it.
+                            <br>
+                            Current version of create-react-app is v5.0.1 (April 2022).
+                            <br>
+                            create-react-app includes built tools such as webpack, Babel, and ESLint.</p>
+                    </article>
+                </section>
+
+                <section class="main-section" id="JSX">
+                    <header>JSX</header>
+                    <article>
+                        <h2>What is JSX ?</h2>
+                        <p>JSX stands for JavaScript XML
+                            <br>
+                            JSX allows us to write HTML in React.
+                            <br>
+                            JSX makes it easier to write and add HTML in React.</p>
+                            <br>
+                            <h2>Coding JSX</h2>
+                            <p>
+                                JSX allows us to write HTML elements in JavaScript and place them in the DOM without any createElement()  and/or appendChild() methods.
+                                <br>
+                                JSX converts HTML tags into react elements.
+                                <br>
+                                You are not required to use JSX, but JSX makes it easier to write React applications.
+                                <br>
+                                Here are two examples. The first uses JSX and the second does not:
+                                <h3>Example 1 with JSX :</h3>
+                                <code>
+                                    const myElement = &lt;h1>I Love JSX!&lt;/h1>;
+                                
+                                    const root = ReactDOM.createRoot(document.getElementById('root'));
+                                    root.render(myElement);
+                                </code>
+                                <br>
+                                <h3>Example 2 without JSX:</h3>
+                                <code>
+                                    const myElement = React.createElement('h1', {}, 'I do not use JSX!');
+                                
+                                    const root = ReactDOM.createRoot(document.getElementById('root'));
+                                    root.render(myElement);
+                                </code>
+                                <br>
+                                As you can see in the first example, JSX allows us to write HTML directly within the JavaScript code.
+                                <br>
+                                JSX is an extension of the JavaScript language based on ES6, and is translated into regular JavaScript at runtime.
+                            </p>
+                    </article>
+                    </section>
+
+                <section class="main-section" id="Props">
+                    <header>Props</header>
+                    <article>
+                        <p>
+                            React Props are like function arguments in JavaScript and attributes in HTML.
+                        </p>
+
+                        <p>
+                            To send props into a component, use the same syntax as HTML attributes:
+                            <h3>Example Add a "brand" attribute to the Car element:</h3>
+                            <code>
+                                const myElement = &lt;Car brand="Ford" />;
+                            </code>
+                            The component receives the argument as a props object:
+                            <h3>Example Use the brand attribute in the component:</h3>
+                            <code>
+                                function Car(props) {
+                                return &lt;h2>I am a { props.brand }!&lt;/h2>;
+                            }
+                            </code>
+                        </p>
+
+                        <h2>Pass Data</h2>
+
+                        <p>
+                            Props are also how you pass data from one component to another, as parameters.
+                        </p>
+
+                        <p>
+                            <h3>Example Send the "brand" property from the Garage component to the Car component:</h3>
+                            <code>
+                                function Car(props) {
+                                    return &lt;h2>I am a { props.brand }!&lt;/h2>;
+                                }
+                                
+                                function Garage() {
+                                    return (
+                                    &lt;>
+                                        &lt;h1>Who lives in my garage?&lt;/h1>
+                                        &lt;Car brand="Ford" />
+                                    &lt;/>
+                                    );
+                                }
+                                
+                                const root = ReactDOM.createRoot(document.getElementById('root'));
+                                root.render(&lt;Garage />);
+                            </code>
+                        </p>
+
+                        <p>
+                            If you have a variable to send, and not a string as in the example above, you just put the variable name inside curly brackets:
+                            <h3>Example Create a variable named carName and send it to the Car component:</h3>
+                            <code>
+                                function Car(props) {
+                                    return &lt;h2>I am a { props.brand }!&lt;/h2>;
+                                }
+                                
+                                function Garage() {
+                                    const carName = "Ford";
+                                    return (
+                                    &lt;>
+                                        &lt;h1>Who lives in my garage?&lt;/h1>
+                                        &lt;Car brand={ carName } />
+                                    &lt;/>
+                                    );
+                                }
+                                
+                                const root = ReactDOM.createRoot(document.getElementById('root'));
+                                root.render(&lt;Garage />);</code>
+                                Or if it was an object:
+
+                                <h3>Example
+                                    Create an object named carInfo and send it to the Car component:
+                                    </h3>
+                                    <code>function Car(props) {
+                                        return &lt;h2>I am a { props.brand.model }!&lt;/h2>;
+                                    &lt;
+                                    
+                                    function Garage() {
+                                        const carInfo = { name: "Ford", model: "Mustang" };
+                                        return (
+                                        &lt;>
+                                            &lt;h1>Who lives in my garage?&lt;/h1>
+                                            &lt;Car brand={ carInfo } />
+                                        &lt;/>
+                                        );
+                                    }
+                                    
+                                    const root = ReactDOM.createRoot(document.getElementById('root'));
+                                    root.render(&lt;Garage />);
+                                    
+                                    Note: React Props are read-only! You will get an error if you try to change their value.
+                                    </code>
+                        </p>
+                    </article>
+                </section>
+
+                
+                <section class="main-section" id="Events">
+                    <header>Events</header>
+                    <article>
+                        <p>
+                            Just like HTML DOM events, React can perform actions based on user events.
+                            React has the same events as HTML: click, change, mouseover etc.
+                        </p>
+
+                        <p>
+                            Adding Events
+                            <br>
+                            React events are written in camelCase syntax:
+                            <br>
+                            onClick instead of onclick.
+                            <br>
+                            React event handlers are written inside curly braces:
+                            <br>
+                            onClick={shoot}  instead of onclick="shoot()".
+                            
+                            <h3>React:</h3>
+                            
+                            <code>
+                                &lt;button onClick={shoot}>Take the Shot!&lt;/button>
+                            </code>
+                            
+                            <h3>HTML:</h3>
+
+                            <code>
+                                &lt;button onclick="shoot()">Take the Shot!&lt;/button>
+                            </code>
+                            
+                            <h3>Example Put the shoot function inside the Football component:</h3>
+                            <code>
+                                function Football() {
+                                const shoot = () => {
+                                    alert("Great Shot!");
+                                }
+                                
+                                return (
+                                    &lt;button onClick={shoot}>Take the shot!&lt;/button>
+                                    );
+                                }
+                                
+                                const root = ReactDOM.createRoot(document.getElementById('root'));
+                                root.render(&lt;Football />);
+                            </code>
+                            
+                            <h2>Passing Arguments</h2>
+                            
+                            To pass an argument to an event handler, use an arrow function.
+                            
+                            <h3>Example - Send "Goal!" as a parameter to the shoot function, using arrow function:</h3>
+
+                            <code>
+                                function Football() {
+                                const shoot = (a) => {
+                                    alert(a);
+                                }
+                                
+                                return (
+                                    &lt;button onClick={() => shoot("Goal!")}>Take the shot!&lt;/button>
+                                    );
+                                }
+                                
+                                const root = ReactDOM.createRoot(document.getElementById('root'));
+                                root.render(&lt;Football />);
+                            </code>
+
+                            <h2>React Event Object</h2>
+                            
+                            Event handlers have access to the React event that triggered the function.
+                            In our example the event is the "click" event.
+
+                            <h3>Example:<br>Arrow Function: Sending the event object manually:</h3>
+                            <code>
+                                function Football() {
+                                const shoot = (a, b) => {
+                                    alert(b.type);
+                                    /*
+                                    'b' represents the React event that triggered the function,
+                                    in this case the 'click' event
+                                    */
+                                }
+                                
+                                return (
+                                    &lt;button onClick={(event) => shoot("Goal!", event)}>Take the shot!&lt;/button>
+                                    );
+                                }
+                                
+                                const root = ReactDOM.createRoot(document.getElementById('root'));
+                                root.render(&lt;Football />);
+                            </code>
+                        </p>
+                    </article>        
+            </section>
+            
+            <section class="main-section" id="Hooks">
+                <header>Hooks</header>
+                <article>
+                    <p>
+                        Hooks were added to React in version 16.8.
+                        <br>
+                        Hooks allow function components to have access to state and other React features. Because of this, class components are generally no longer needed.
+                        Although Hooks generally replace class components, there are no plans to remove classes from React.
+                    </p>
+
+                    <p>
+                        <h2>What is a Hook?</h2>Hooks allow us to "hook" into React features such as state and lifecycle methods.<br>
+                        <h3>Example - Here is an example of a Hook. Don't worry if it doesn't make sense. We will go into more detail in the next section.</h3>
+                        
+                        <code>
+                            import React, { useState } from "react";
+                            import ReactDOM from "react-dom/client";
+                    
+                            function FavoriteColor() {
+                                const [color, setColor] = useState("red");
+                                
+                            return (
+                                &lt;>
+                                    &lt;h1>My favorite color is {color}! &lt;/h1>
+                                    &lt;button type="button"onClick= {() => setColor("blue")}>Blue &lt;/button>
+                                    &lt;button type="button" onClick={() => setColor("red")}>Red &lt;/button>
+                                    &lt;button type="button" onClick={() => setColor("pink")}>Pink &lt;/button>
+                                    &lt;button type="button" onClick={() => setColor("green")}>Green &lt;/button>
+                                &lt;/>
+                            );
+                        }
+                    
+                            const root = ReactDOM.createRoot(document.getElementById('root'));
+                            root.render( &lt;FavoriteColor />);
+                        </code>
+                        You must import Hooks from react.
+                        <br>
+                        Here we are using the useState Hook to keep track of the application state.
+                        <br>
+                        State generally refers to application data or properties that need to be tracked.
+                        
+                        <h3>Hook Rules</h3>
+                        Hooks can only be called inside React function components.<br>
+                        Hooks can only be called at the top level of a component.<br>
+                        Hooks cannot be conditional<br>
+                        <strong>Note:</strong> Hooks will not work in React class components.
+                    </p>
+                </article>
+            </section>
+        </main>
+    </body>
+</html>

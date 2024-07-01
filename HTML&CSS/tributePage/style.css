@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Milonga&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body{
+    font-family: "DM Serif Display", serif;
+    background-color: #e8e8e8;
+    display: grid;
+    font-size: 21px;
+}
+
+html::-webkit-scrollbar{
+    display: none;
+}
+
+#img-div{
+    background-color: rgb(255, 170, 0);
+    border-radius: 1rem;
+    padding: 10px;
+    margin: 2rem auto;
+    max-width: 50%;
+}
+
+img {
+    border-radius: 1rem;
+    max-width: 75%;
+    width: 65rem;
+    display: block;
+    height: auto;
+    margin: 2rem auto;
+}
+
+header, 
+#img-div,
+#img-caption,
+q,
+p  
+{
+    text-align: center;
+}
+
+#img-caption{
+    color: #ffffff;
+}
