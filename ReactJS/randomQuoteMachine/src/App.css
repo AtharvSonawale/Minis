@@ -1,20 +1,19 @@
- #root {
-  max-width: 1080px;
-  margin: 0 auto;
+ /* #root {
+  min-width: 100px;
+  margin: auto auto;
   padding: 2rem;
   text-align: center;
-  /* border: 2px solid red; */
-  /* min-width: auto; */
+  border: 2px solid red;
+  min-width: auto;
   min-height: 36.27rem;
   place-content: center;
-}
+} */
 
-#quote-box{
+/* #quote-box{
   border: 2px solid rebeccapurple;
   width: auto;
   height: auto;
-}
-
+} */
 
 /*
 .logo {
@@ -53,6 +52,7 @@
   color: #888;
 } */
 
-h1{
-  color: aqua;
+#quote-box{
+  width: 40vw;
+  height: auto;
 }
