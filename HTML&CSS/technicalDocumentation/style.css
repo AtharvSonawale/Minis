@@ -14,7 +14,6 @@ body::-webkit-scrollbar{
 
 #navbar::-webkit-scrollbar{
   display: none;
-
 }
 
 
@@ -27,9 +26,16 @@ body::-webkit-scrollbar{
   border-right: 1px solid white;
   overflow-y: scroll;
 }
+
+a:hover{
+  opacity: 75%;
+  transition-duration: 0.1s;
+}
+
+
 header {
   font-size: 31px;
-  margin: 7px;
+  margin: 1rem;
   text-align: center;
 }
 .nav-link {

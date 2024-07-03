@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReactJs Technical Documentation Page</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="1174949_js_react js_logo_react_react native_icon.png">
 </head>
 <body>
         <nav id="navbar">
@@ -25,16 +26,16 @@
                     <article><p>React is a JavaScript library for building user interfaces. React is used to build single-page applications. React allows us to create reusable UI components.
                         
                     <code>
-                        import React from 'react';
-                        import ReactDOM from 'react-dom/client';
-                        
-                        function Hello(props) {
-                        return &lt;h1>Hello World!&lt;/h1>;
-                        }
-                        
-                        const container = document.getElementById("root");
-                        const root = ReactDOM.createRoot(container);
-                        root.render(&lt;Hello />);
+    import React from 'react';
+    import ReactDOM from 'react-dom/client';
+                            
+    function Hello(props) {
+    return &lt;h1>Hello World!&lt;/h1>;
+    }
+                            
+    const container = document.getElementById("root");
+    const root = ReactDOM.createRoot(container);
+    root.render(&lt;Hello />);
                     </code>
                     <h2>What is React ?</h2>
                     <p>
@@ -88,18 +89,18 @@
                                 Here are two examples. The first uses JSX and the second does not:
                                 <h3>Example 1 with JSX :</h3>
                                 <code>
-                                    const myElement = &lt;h1>I Love JSX!&lt;/h1>;
-                                
-                                    const root = ReactDOM.createRoot(document.getElementById('root'));
-                                    root.render(myElement);
+    const myElement = &lt;h1>I Love JSX!&lt;/h1>;
+                                    
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(myElement);
                                 </code>
                                 <br>
                                 <h3>Example 2 without JSX:</h3>
                                 <code>
-                                    const myElement = React.createElement('h1', {}, 'I do not use JSX!');
-                                
-                                    const root = ReactDOM.createRoot(document.getElementById('root'));
-                                    root.render(myElement);
+    const myElement = React.createElement('h1', {}, 'I do not use JSX!');
+                                    
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(myElement);
                                 </code>
                                 <br>
                                 As you can see in the first example, JSX allows us to write HTML directly within the JavaScript code.
@@ -120,14 +121,14 @@
                             To send props into a component, use the same syntax as HTML attributes:
                             <h3>Example Add a "brand" attribute to the Car element:</h3>
                             <code>
-                                const myElement = &lt;Car brand="Ford" />;
+    const myElement = &lt;Car brand="Ford" />;
                             </code>
                             The component receives the argument as a props object:
                             <h3>Example Use the brand attribute in the component:</h3>
                             <code>
-                                function Car(props) {
-                                return &lt;h2>I am a { props.brand }!&lt;/h2>;
-                            }
+    function Car(props) {
+    return &lt;h2>I am a { props.brand }!&lt;/h2>;
+    }
                             </code>
                         </p>
 
@@ -140,21 +141,21 @@
                         <p>
                             <h3>Example Send the "brand" property from the Garage component to the Car component:</h3>
                             <code>
-                                function Car(props) {
-                                    return &lt;h2>I am a { props.brand }!&lt;/h2>;
-                                }
-                                
-                                function Garage() {
-                                    return (
-                                    &lt;>
-                                        &lt;h1>Who lives in my garage?&lt;/h1>
-                                        &lt;Car brand="Ford" />
-                                    &lt;/>
-                                    );
-                                }
-                                
-                                const root = ReactDOM.createRoot(document.getElementById('root'));
-                                root.render(&lt;Garage />);
+    function Car(props) {
+        return &lt;h2>I am a { props.brand }!&lt;/h2>;
+    }
+                                    
+    function Garage() {
+        return (
+        &lt;>
+            &lt;h1>Who lives in my garage?&lt;/h1>
+            &lt;Car brand="Ford" />
+        &lt;/>
+        );
+    }
+                                    
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(&lt;Garage />);
                             </code>
                         </p>
 
@@ -162,47 +163,50 @@
                             If you have a variable to send, and not a string as in the example above, you just put the variable name inside curly brackets:
                             <h3>Example Create a variable named carName and send it to the Car component:</h3>
                             <code>
-                                function Car(props) {
-                                    return &lt;h2>I am a { props.brand }!&lt;/h2>;
-                                }
-                                
-                                function Garage() {
-                                    const carName = "Ford";
-                                    return (
-                                    &lt;>
-                                        &lt;h1>Who lives in my garage?&lt;/h1>
-                                        &lt;Car brand={ carName } />
-                                    &lt;/>
-                                    );
-                                }
-                                
-                                const root = ReactDOM.createRoot(document.getElementById('root'));
-                                root.render(&lt;Garage />);</code>
-                                Or if it was an object:
+    function Car(props) {
+        return &lt;h2>I am a { props.brand }!&lt;/h2>;
+    }
+                                    
+    function Garage() {
+        const carName = "Ford";
+        return (
+        &lt;>
+            &lt;h1>Who lives in my garage?&lt;/h1>
+            &lt;Car brand={ carName } />
+        &lt;/>
+        );
+    }
+                                    
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(&lt;Garage />);
 
-                                <h3>Example
-                                    Create an object named carInfo and send it to the Car component:
-                                    </h3>
-                                    <code>function Car(props) {
-                                        return &lt;h2>I am a { props.brand.model }!&lt;/h2>;
-                                    &lt;
+</code>
+Or if it was an object:
+
+<h3>Example
+    Create an object named carInfo and send it to the Car component:
+    </h3>
+    <code>
+    function Car(props) {
+    return &lt;h2>I am a { props.brand.model }!&lt;/h2>;
+    &lt;>
                                     
-                                    function Garage() {
-                                        const carInfo = { name: "Ford", model: "Mustang" };
-                                        return (
-                                        &lt;>
-                                            &lt;h1>Who lives in my garage?&lt;/h1>
-                                            &lt;Car brand={ carInfo } />
-                                        &lt;/>
-                                        );
-                                    }
+    function Garage() {
+        const carInfo = { name: "Ford", model: "Mustang" };
+        return (
+        &lt;>
+            &lt;h1>Who lives in my garage?&lt;/h1>
+            &lt;Car brand={ carInfo } />
+        &lt;/>
+        );
+    }
                                     
-                                    const root = ReactDOM.createRoot(document.getElementById('root'));
-                                    root.render(&lt;Garage />);
-                                    
-                                    Note: React Props are read-only! You will get an error if you try to change their value.
-                                    </code>
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(&lt;Garage />);
+
+</code>
                         </p>
+                        <strong>Note:</strong> React Props are read-only! You will get an error if you try to change their value.
                     </article>
                 </section>
 
@@ -229,29 +233,29 @@
                             <h3>React:</h3>
                             
                             <code>
-                                &lt;button onClick={shoot}>Take the Shot!&lt;/button>
+    &lt;button onClick={shoot}>Take the Shot!&lt;/button>
                             </code>
                             
                             <h3>HTML:</h3>
 
                             <code>
-                                &lt;button onclick="shoot()">Take the Shot!&lt;/button>
+    &lt;button onclick="shoot()">Take the Shot!&lt;/button>
                             </code>
                             
                             <h3>Example Put the shoot function inside the Football component:</h3>
                             <code>
-                                function Football() {
-                                const shoot = () => {
-                                    alert("Great Shot!");
-                                }
-                                
-                                return (
-                                    &lt;button onClick={shoot}>Take the shot!&lt;/button>
-                                    );
-                                }
-                                
-                                const root = ReactDOM.createRoot(document.getElementById('root'));
-                                root.render(&lt;Football />);
+    function Football() {
+    const shoot = () => {
+        alert("Great Shot!");
+    }
+                                    
+    return (
+        &lt;button onClick={shoot}>Take the shot!&lt;/button>
+        );
+    }
+                                    
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(&lt;Football />);
                             </code>
                             
                             <h2>Passing Arguments</h2>
@@ -261,18 +265,18 @@
                             <h3>Example - Send "Goal!" as a parameter to the shoot function, using arrow function:</h3>
 
                             <code>
-                                function Football() {
-                                const shoot = (a) => {
-                                    alert(a);
-                                }
-                                
-                                return (
-                                    &lt;button onClick={() => shoot("Goal!")}>Take the shot!&lt;/button>
-                                    );
-                                }
-                                
-                                const root = ReactDOM.createRoot(document.getElementById('root'));
-                                root.render(&lt;Football />);
+    function Football() {
+    const shoot = (a) => {
+        alert(a);
+    }
+                                    
+    return (
+        &lt;button onClick={() => shoot("Goal!")}>Take the shot!&lt;/button>
+        );
+    }
+                                    
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(&lt;Football />);
                             </code>
 
                             <h2>React Event Object</h2>
@@ -282,22 +286,23 @@
 
                             <h3>Example:<br>Arrow Function: Sending the event object manually:</h3>
                             <code>
-                                function Football() {
-                                const shoot = (a, b) => {
-                                    alert(b.type);
-                                    /*
-                                    'b' represents the React event that triggered the function,
-                                    in this case the 'click' event
-                                    */
-                                }
-                                
-                                return (
-                                    &lt;button onClick={(event) => shoot("Goal!", event)}>Take the shot!&lt;/button>
-                                    );
-                                }
-                                
-                                const root = ReactDOM.createRoot(document.getElementById('root'));
-                                root.render(&lt;Football />);
+    function Football() {
+    const shoot = (a, b) => {
+        alert(b.type);
+        /*
+        'b' represents the React event that triggered the function,
+        in this case the 'click' event
+        */
+    }
+                                    
+    return (
+        &lt;button onClick={(event) => shoot("Goal!", event)}>Take the shot!
+        &lt;button>
+        );
+    }
+                                    
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(&lt;Football />);
                             </code>
                         </p>
                     </article>        
@@ -318,25 +323,25 @@
                         <h3>Example - Here is an example of a Hook. Don't worry if it doesn't make sense. We will go into more detail in the next section.</h3>
                         
                         <code>
-                            import React, { useState } from "react";
-                            import ReactDOM from "react-dom/client";
+    import React, { useState } from "react";
+    import ReactDOM from "react-dom/client";
                     
-                            function FavoriteColor() {
-                                const [color, setColor] = useState("red");
+    function FavoriteColor() {
+    const [color, setColor] = useState("red");
                                 
-                            return (
-                                &lt;>
-                                    &lt;h1>My favorite color is {color}! &lt;/h1>
-                                    &lt;button type="button"onClick= {() => setColor("blue")}>Blue &lt;/button>
-                                    &lt;button type="button" onClick={() => setColor("red")}>Red &lt;/button>
-                                    &lt;button type="button" onClick={() => setColor("pink")}>Pink &lt;/button>
-                                    &lt;button type="button" onClick={() => setColor("green")}>Green &lt;/button>
-                                &lt;/>
-                            );
-                        }
+    return (
+        &lt;>
+            &lt;h1>My favorite color is {color}! &lt;/h1>
+            &lt;button type="button"onClick= {() => setColor("blue")}>Blue &lt;/button>
+            &lt;button type="button" onClick={() => setColor("red")}>Red &lt;/button>
+            &lt;button type="button" onClick={() => setColor("pink")}>Pink &lt;/button>
+            &lt;button type="button" onClick={() => setColor("green")}>Green &lt;/button>
+            &lt;/>
+        );
+    }
                     
-                            const root = ReactDOM.createRoot(document.getElementById('root'));
-                            root.render( &lt;FavoriteColor />);
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render( &lt;FavoriteColor />);
                         </code>
                         You must import Hooks from react.
                         <br>
@@ -350,7 +355,7 @@
                         Hooks cannot be conditional<br>
                         <strong>Note:</strong> Hooks will not work in React class components.
                     </p>
-                </article>
+                </article>  
             </section>
         </main>
     </body>
