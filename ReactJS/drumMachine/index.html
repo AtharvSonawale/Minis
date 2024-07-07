@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Machine</title>
+    <style>
+        /* Add some basic styles */
+        #drum-machine {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .drum-pad {
+            background: #ccc;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
+        #display {
+            grid-column: span 3;
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+        }
+        #volume-control {
+            grid-column: span 3;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="drum-machine">
+        <div id="display"></div>
+        <div id="volume-control">
+            Volume: <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+        </div>
+        <div class="drum-pad" id="Heater-1">Q<audio class="clip" id="Q" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3"></audio></div>
+        <div class="drum-pad" id="Heater-2">W<audio class="clip" id="W" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"></audio></div>
+        <div class="drum-pad" id="Heater-3">E<audio class="clip" id="E" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3"></audio></div>
+        <div class="drum-pad" id="Heater-4">A<audio class="clip" id="A" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4.mp3"></audio></div>
+        <div class="drum-pad" id="Clap">S<audio class="clip" id="S" src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"></audio></div>
+        <div class="drum-pad" id="Open-HH">D<audio class="clip" id="D" src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"></audio></div>
+        <div class="drum-pad" id="Kick-n'-Hat">Z<audio class="clip" id="Z" src="https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3"></audio></div>
+        <div class="drum-pad" id="Kick">X<audio class="clip" id="X" src="https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3"></audio></div>
+        <div class="drum-pad" id="Closed-HH">C<audio class="clip" id="C" src="https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"></audio></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.1.2/redux.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // Define initial state
+        const initialState = {
+            displayText: '',
+            volume: 0.5
+        };
+
+        // Define action types
+        const SET_DISPLAY_TEXT = 'SET_DISPLAY_TEXT';
+        const SET_VOLUME = 'SET_VOLUME';
+
+        // Define action creators
+        const setDisplayText = (text) => ({
+            type: SET_DISPLAY_TEXT,
+            text
+        });
+
+        const setVolume = (volume) => ({
+            type: SET_VOLUME,
+            volume
+        });
+
+        // Define reducer
+        const reducer = (state = initialState, action) => {
+            switch (action.type) {
+                case SET_DISPLAY_TEXT:
+                    return { ...state, displayText: action.text };
+                case SET_VOLUME:
+                    return { ...state, volume: action.volume };
+                default:
+                    return state;
+            }
+        };
+
+        // Create Redux store
+        const store = Redux.createStore(reducer);
+
+        // jQuery document ready function
+        $(document).ready(function() {
+            // Function to play audio and update display
+            function playSound(id) {
+                const audio = $(`#${id}`)[0];
+                audio.volume = store.getState().volume;
+                audio.currentTime = 0;
+                audio.play();
+                const text = $(`#${id}`).parent().attr('id');
+                store.dispatch(setDisplayText(text));
+            }
+
+            // Click event for drum pads
+            $('.drum-pad').on('click', function() {
+                const id = $(this).children('audio').attr('id');
+                playSound(id);
+            });
+
+            // Keydown event for triggering drum pads
+            $(document).on('keydown', function(e) {
+                const key = String.fromCharCode(e.which);
+                const audio = $(`#${key}`)[0];
+                if (audio) {
+                    playSound(key);
+                }
+            });
+
+            // Volume control event
+            $('#volume').on('input', function() {
+                const volume = $(this).val();
+                store.dispatch(setVolume(volume));
+            });
+
+            // Subscribe to store updates
+            store.subscribe(() => {
+                const state = store.getState();
+                $('#display').text(state.displayText);
+            });
+        });
+    </script>
+</body>
+</html>
