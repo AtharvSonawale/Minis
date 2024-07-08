@@ -1,0 +1,87 @@
+.calculator {
+    display: grid;
+    grid-template-areas:
+      "operations operations operations operations"
+      "display display display display"
+      "clear backspace divide multiply"
+      "seven eight nine subtract"
+      "four five six add"
+      "one two three equals"
+      "zero zero decimal equals";
+    gap: 10px;
+    width: 320px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #282c34;
+  }
+  
+  .operations {
+    grid-area: operations;
+    background-color: #333;
+    color: #fff;
+    text-align: right;
+    padding: 10px;
+    font-size: 1.2em;
+    white-space: pre-line; /* to preserve new lines */
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .display {
+    grid-area: display;
+    background-color: #222;
+    color: #fff;
+    text-align: right;
+    padding: 20px;
+    font-size: 2em;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  button {
+    background-color: #f0f0f0;
+    border: none;
+    font-size: 1.5em;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  
+    &:active {
+      background-color: #ccc;
+    }
+  }
+  
+  #clear {
+    grid-area: clear;
+    background-color: #ff6666;
+    color: #fff;
+  }
+  
+  #backspace {
+    grid-area: backspace;
+    background-color: #ff6666;
+    color: #fff;
+  }
+  
+  #divide, #multiply, #subtract, #add {
+    background-color: #ffcc00;
+  }
+  
+  #equals {
+    grid-area: equals;
+    background-color: #66ff66;
+    color: #fff;
+  }
+  
+  #decimal {
+    background-color: #66b3ff;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
