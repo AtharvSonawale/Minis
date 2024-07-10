@@ -26,10 +26,17 @@ const DrumMachine = () => {
   return (
     <div id="drum-machine">
       <div className="controls">
+        <div id="toggles">
         <button onClick={handlePowerToggle}>
           {power ? 'Turn Off' : 'Turn On'}
         </button>
+        <button onClick={handleBankToggle}>Bank</button>
+        </div>
+        
+        <p id="display">{currentSound}</p>
+      </div>
         <input
+          id='range'
           type="range"
           min="0"
           max="1"
@@ -37,9 +44,6 @@ const DrumMachine = () => {
           value={volume}
           onChange={handleVolumeChange}
         />
-        <button onClick={handleBankToggle}>Toggle Bank</button>
-        <p id="display">{currentSound}</p>
-      </div>
       <div className="pads">
         {bank.map((pad) => (
           <DrumPad key={pad.id} pad={pad} />
