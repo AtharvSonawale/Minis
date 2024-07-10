@@ -31,7 +31,7 @@ border: 2px outset #ffbb00;
     background-color: #343434;
     color: #ffffff;
     text-align: right;
-    padding: 2rem;
+    padding: 0.5rem;
     
     font-size: 1.2em;
     white-space: pre-line; /* to preserve new lines */
@@ -79,29 +79,48 @@ border: 2px outset rgb(255, 213, 0);
   
   #clear {
     grid-area: clear;
-    background-color: #ff0000;
+    background-color: #f20000;
     color: #fff;
     font-weight: 500;
+
+    &:hover{
+      background-color: #ff0000;
+    }
   }
   
   #backspace {
     grid-area: backspace;
-    background-color: #ff4242;
+    background-color: #f13e3e;
     color: #fff;
+    &:hover{
+    background-color: #ff4242;
+
+    }
   }
   
   #divide, #multiply, #subtract, #add {
-    background-color: #00f7ff;
+    background-color: #00e4ec;
+    &:hover{
+      background-color: #00f7ff;
+    }
   }
   
   #equals {
     grid-area: equals;
-    background-color: #00ff00;
+    background-color: #00f600;
     color: #fff;
+    &:hover{
+    background-color: #00ff00;
+
+    }
   }
   
   #decimal {
+    background-color: #539fea;
+    &:hover{
     background-color: #66b3ff;
+
+    }
   }
   
   button:focus {
