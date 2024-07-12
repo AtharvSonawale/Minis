@@ -1,11 +1,17 @@
+// src/App.jsx
 import React from 'react';
-import Calculator from './Calculator';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import Calculator from './components/Calculator';
+import './styles/main.scss';
 
 const App = () => {
   return (
-    <div className="App">
-      <Calculator />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Calculator />
+      </div>
+    </Provider>
   );
 };
 
