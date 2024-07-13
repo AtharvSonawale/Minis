@@ -1,83 +1,30 @@
 // src/components/Calculator.jsx
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { actions } from '../redux/store';
+import React from 'react';
+import Button from './Button';
+import Display from './Display';
 
 const Calculator = () => {
-  const dispatch = useDispatch();
-  const display = useSelector((state) => state.display);
-  const [upperDisplay, setUpperDisplay] = useState('');
-  const [lowerDisplay, setLowerDisplay] = useState('0');
-  const [isResult, setIsResult] = useState(false);
-
-  const handleNumberClick = (number) => {
-    if (isResult) {
-      setUpperDisplay('');
-      setLowerDisplay(number);
-      setIsResult(false);
-    } else {
-      setLowerDisplay((prev) => (prev === '0' ? number : prev + number));
-    }
-  };
-
-  const handleOperatorClick = (operator) => {
-    if (isResult) {
-      setUpperDisplay(lowerDisplay + ' ' + operator + ' ');
-      setLowerDisplay('0');
-      setIsResult(false);
-    } else {
-      setUpperDisplay((prev) => prev + ' ' + lowerDisplay + ' ' + operator + ' ');
-      setLowerDisplay('0');
-    }
-  };
-
-  const handleEqualClick = () => {
-    const expression = upperDisplay + ' ' + lowerDisplay;
-    const result = eval(expression.replace(/×/g, '*').replace(/÷/g, '/')); // Replace symbols for eval
-    setLowerDisplay(result.toString());
-    setIsResult(true);
-  };
-
-  const handleClearClick = () => {
-    setUpperDisplay('');
-    setLowerDisplay('0');
-    setIsResult(false);
-  };
-
-  const handleDecimalClick = () => {
-    if (isResult) {
-      setUpperDisplay('');
-      setLowerDisplay('0.');
-      setIsResult(false);
-    } else if (!lowerDisplay.includes('.')) {
-      setLowerDisplay((prev) => prev + '.');
-    }
-  };
-
   return (
     <div className="calculator">
-      <div id="display-container">
-        <div id="upper-display">{upperDisplay}</div>
-        <div id="display">{lowerDisplay}</div>
-      </div>
+      <Display />
       <div className="buttons">
-        <button id="clear" onClick={handleClearClick}>AC</button>
-        <button id="divide" onClick={() => handleOperatorClick('÷')}>÷</button>
-        <button id="multiply" onClick={() => handleOperatorClick('×')}>×</button>
-        <button id="seven" onClick={() => handleNumberClick('7')}>7</button>
-        <button id="eight" onClick={() => handleNumberClick('8')}>8</button>
-        <button id="nine" onClick={() => handleNumberClick('9')}>9</button>
-        <button id="subtract" onClick={() => handleOperatorClick('-')}>-</button>
-        <button id="four" onClick={() => handleNumberClick('4')}>4</button>
-        <button id="five" onClick={() => handleNumberClick('5')}>5</button>
-        <button id="six" onClick={() => handleNumberClick('6')}>6</button>
-        <button id="add" onClick={() => handleOperatorClick('+')}>+</button>
-        <button id="one" onClick={() => handleNumberClick('1')}>1</button>
-        <button id="two" onClick={() => handleNumberClick('2')}>2</button>
-        <button id="three" onClick={() => handleNumberClick('3')}>3</button>
-        <button id="zero" className="zero" onClick={() => handleNumberClick('0')}>0</button>
-        <button id="decimal" onClick={handleDecimalClick}>.</button>
-        <button id="equals" onClick={handleEqualClick}>=</button>
+        <Button label="AC" id="clear" type="clear" />
+        <Button label="/" id="divide" type="operator" />
+        <Button label="*" id="multiply" type="operator" />
+        <Button label="7" id="seven" type="digit" />
+        <Button label="8" id="eight" type="digit" />
+        <Button label="9" id="nine" type="digit" />
+        <Button label="-" id="subtract" type="operator" />
+        <Button label="4" id="four" type="digit" />
+        <Button label="5" id="five" type="digit" />
+        <Button label="6" id="six" type="digit" />
+        <Button label="+" id="add" type="operator" />
+        <Button label="1" id="one" type="digit" />
+        <Button label="2" id="two" type="digit" />
+        <Button label="3" id="three" type="digit" />
+        <Button label="=" id="equals" type="equals" />
+        <Button label="0" id="zero" type="digit" className="zero" />
+        <Button label="." id="decimal" type="decimal" />
       </div>
     </div>
   );

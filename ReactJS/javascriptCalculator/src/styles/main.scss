@@ -1,4 +1,3 @@
-// src/styles/main.scss
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&display=swap');
 
 $button-size: 4rem;
@@ -12,26 +11,26 @@ $font: "Anton SC", sans-serif;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px outset #ff9100;
+  border: 2px outset #686868;
   width: 20rem;
   height: 20rem;
   padding: 1rem;
   border-radius: 1rem;
-  background: #ff9100;
-  box-shadow:  20px 20px 60px #d97b00,
-  -20px -20px 60px #ffa700;
+  background: #686868;
+  box-shadow:  10px 10px 5px #bebebe,
+             -10px -10px 5px #ffffff;
 }
 
 #display {
   margin-bottom: 1rem;
   width: 19.2rem;
   color: #fff;
-  height: 2rem; // Increased height for better visibility
+  height: 2rem;
   border-radius: 0.5rem;
   background-color: rgb(50, 50, 50);
   text-align: right;
   padding: 0.5rem;
-  font-size: 1.5rem; // Increased font size for better visibility
+  font-size: 1.5rem;
   font-family: $font;
   border: 2px inset #fff;
 }
@@ -40,23 +39,22 @@ $font: "Anton SC", sans-serif;
   width: inherit;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr); // Ensuring a 4-column layout
-  grid-template-rows: repeat(5, 1fr); // Ensuring 5 rows of equal height
-  gap: 0.5rem; // Added gap between buttons
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0.5rem;
   padding: 0;
 
   button {
     width: 100%;
-    height: 100%; // Full height of the grid cell
+    height: 100%;
     background-color: $button-color;
     border: $button-border;
     font-size: 1.5rem;
     cursor: pointer;
-    border-radius: 0.5rem; // Rounded corners
+    border-radius: 0.5rem;
   font-family: $font;
-  box-shadow: 5px 5px 5px rgb(255, 157, 0);
-// border-style: outset;
-border: 2px outset rgb(255, 213, 0);
+  box-shadow: 5px 5px 5px #333333;
+border: 2px outset #686868;
 
 
 &:hover {
@@ -65,7 +63,7 @@ border: 2px outset rgb(255, 213, 0);
 
   &:active {
     background-color: #ffffff;
-border: 2px outset rgb(255, 213, 0);
+border: 2px outset #343434;
   }
   }
 
@@ -82,11 +80,11 @@ border: 2px outset rgb(255, 213, 0);
   }
 
   #equals {
-    grid-column: 4; // Place it in the last column
-    grid-row: span 2; // Span two rows
+    grid-column: 4;
+    grid-row: span 2;
     background-color: #f96c6c;
     color: white;
-    height: calc(88% + 0.5rem); // Ensuring it covers the height of two rows
+    height: calc(88% + 0.5rem); 
     z-index: 0;
   }
 }
@@ -96,9 +94,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-//   border: 2px solid red;
   height: 99.3vh;
   width: 99.7vw;
   margin: auto;
-  background: #ff9100e1;
+  background: #e0e0e0;
 }
