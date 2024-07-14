@@ -1,4 +1,3 @@
-// src/components/Calculator.jsx
 import React from 'react';
 import Button from './Button';
 import Display from './Display';
