@@ -1,0 +1,48 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* src/components/Timer.css */
+.timer {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.control {
+  text-align: center;
+}
+
+.control button {
+  margin: 0 0.5rem;
+}
+
+.timer-display {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttons button {
+  margin: 0 0.5rem;
+}

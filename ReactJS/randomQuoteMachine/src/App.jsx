@@ -30,7 +30,7 @@ const QuoteBox = () => {
   const getQuotes = async () => {
     try {
       const response = await axios.get(
-        'https://api.jsonsilo.com/demo/48148710-f7b9-46dd-b09d-b3f0e4c0bb15'
+        'https://api.jsonsilo.com/demo/b702ed70-84ef-470e-b94b-950ad4f414dc'
       );
       setQuotesData(response.data.quotes);
       getQuote(response.data.quotes);
@@ -56,7 +56,7 @@ const QuoteBox = () => {
     setTimeout(() => {
       setIsAnimating(false);
       getQuote();
-    }, 1000);
+    }, 1500);
   };
 
   return (
