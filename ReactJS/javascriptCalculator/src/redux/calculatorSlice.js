@@ -25,7 +25,7 @@ const calculatorSlice = createSlice({
         state.displayValue += '.';
       }
     },
-    clear: (state) => {
+    clear: () => {
       return initialState;
     },
     performOperation: (state, action) => {
