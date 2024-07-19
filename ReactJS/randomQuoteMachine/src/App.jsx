@@ -30,7 +30,7 @@ const QuoteBox = () => {
   const getQuotes = async () => {
     try {
       const response = await axios.get(
-        'https://api.jsonsilo.com/demo/b702ed70-84ef-470e-b94b-950ad4f414dc'
+        'https://api.jsonsilo.com/demo/c6bb6ebb-e873-4ea1-9711-bad3f559b8f8'
       );
       setQuotesData(response.data.quotes);
       getQuote(response.data.quotes);
