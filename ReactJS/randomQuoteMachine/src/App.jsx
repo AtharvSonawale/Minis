@@ -25,7 +25,7 @@ const QuoteBox = () => {
 
   useEffect(() => {
     getQuotes();
-  }, []);
+  },[]);
 
   const getQuotes = async () => {
     try {
