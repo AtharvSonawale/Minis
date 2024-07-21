@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import BreakLength from './components/BreakLength';
 import SessionLength from './components/SessionLength';
 import Timer from './components/Timer';
