@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Twitter from '../png/sl_z_072523_61700_05-removebg-preview.png';
 import Linkedin from '../png/linkedin-logo-png-2026.png';
@@ -30,7 +30,7 @@ const QuoteBox = () => {
   const getQuotes = async () => {
     try {
       const response = await axios.get(
-        'https://api.jsonsilo.com/demo/c6bb6ebb-e873-4ea1-9711-bad3f559b8f8'
+        'https://api.jsonsilo.com/demo/03cddc86-1edb-4d04-8f84-e3f7004d29ea'
       );
       setQuotesData(response.data.quotes);
       getQuote(response.data.quotes);
@@ -43,7 +43,7 @@ const QuoteBox = () => {
     return quotesData[Math.floor(Math.random() * quotesData.length)];
   };
 
-  const getQuote = (quotes = quotesData) => {
+  const getQuote = () => {
     const randomQuote = getRandomQuote();
     setCurrentQuote(randomQuote.quote);
     setCurrentAuthor(randomQuote.author);
