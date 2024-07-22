@@ -1,6 +1,5 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPower, setVolume, setCurrentSound, toggleBank } from '../store';
+import { setPower, setVolume, toggleBank } from '../store';
 import DrumPad from './DrumPad';
 
 const DrumMachine = () => {
