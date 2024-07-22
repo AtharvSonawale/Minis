@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SessionLength = ({ sessionLength, decrementSessionLength, incrementSessionLength }) => {
   return (
     <div>

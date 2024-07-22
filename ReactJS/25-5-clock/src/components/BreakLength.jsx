@@ -1,5 +1,3 @@
-import React from 'react';
-
 const BreakLength = ({ breakLength, decrementBreakLength, incrementBreakLength }) => {
   return (
     <div>
