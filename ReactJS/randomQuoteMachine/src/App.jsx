@@ -30,7 +30,7 @@ const QuoteBox = () => {
   const getQuotes = async () => {
     try {
       const response = await axios.get(
-        'https://api.jsonsilo.com/demo/03cddc86-1edb-4d04-8f84-e3f7004d29ea'
+        'https://gist.githubusercontent.com/AtharvSonawale/4f6d1c9ff95ed75357669d15e1d45e42/raw/1f3c3a6b3d18c9684cbc8448ac5429784d2cfcfb/10quotes.json'
       );
       setQuotesData(response.data.quotes);
       getQuote(response.data.quotes);
@@ -71,7 +71,7 @@ const QuoteBox = () => {
       >
         <div className="quote-text text-center text-2xl mb-4">
           <i className="fa fa-quote-left mr-2"></i>
-          <span id="text">{currentQuote}</span>
+          <span id="text"><q> {currentQuote} </q></span>
         </div>
         <div className="quote-author text-right mb-4">- <span id="author">{currentAuthor}</span></div>
         <div className="flex justify-between">
