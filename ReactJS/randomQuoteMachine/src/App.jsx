@@ -90,7 +90,7 @@ const QuoteBox = () => {
             <a
               className="button text-white rounded hover:opacity-75"
               id="tumblr-quote"
-              title="Post this quote on tumblr!"
+              title="Post this quote on Linkedin!"
               target="_blank"
               href={`https://www.linkedin.com/in/overlay/?posttype=quote&tags=quotes,freecodecamp&caption=${encodeURIComponent(
                 currentAuthor
